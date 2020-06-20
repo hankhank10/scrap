@@ -1,8 +1,6 @@
-# scrap v2
-
 import os.path
 import sys
-import urllib.request
+import requests
 
 api_url = "http://scrap.hankapi.com"
 scrap_key_filename = "scrap_key"
@@ -22,8 +20,9 @@ def write(text):
     if key == "ERROR":
         return
     else:
+        payload = {'key': key, 'text': text}
         try:
-            r = urllib.request.urlopen(api_url + "/write/?key=" + key + "&text=" + text)
+            r = requests.get(api_url + "/write", params=payload)
         except:
             print ("scrap error")
 
