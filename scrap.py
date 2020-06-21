@@ -23,7 +23,10 @@ def write(text):
         return
     else:
         try:
-            r = urllib.request.urlopen(api_url + "/write/?key=" + key + "&text=" + text)
+            url = api_url + "/write/?key=" + key + "&text=" + text
+            with urllib.request.urlopen(api_url + "/write/?key=" + key + "&text=" + text) as response:
+                html = response.read()
+
         except:
             print ("scrap error")
 
