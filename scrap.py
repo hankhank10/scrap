@@ -5,7 +5,7 @@ import urllib.parse
 
 api_url = "http://scrap.hankapi.com"
 scrap_key_filename = "scrap_key"
-scrap_version = 3
+scrap_version = 4
 
 def get_key_from_file():
     if os.path.isfile(scrap_key_filename):
@@ -23,7 +23,6 @@ def write(text):
         return
     else:
         url = api_url + "/write"
-        print (url)
         values_to_post = {
             'key': key,
             'text': text,
@@ -34,7 +33,7 @@ def write(text):
 
         try:
             with urllib.request.urlopen(request_to_post) as response:
-                print (response.read()), 
+                x = response.read() 
         except Exception as e:
             print (e.message, e.args)
 
