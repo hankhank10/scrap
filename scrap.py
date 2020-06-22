@@ -1,15 +1,17 @@
 import os.path
 import sys
-import requests
+import urllib.request
+import urllib.parse
 
 api_url = "http://scrap.hankapi.com"
 scrap_key_filename = "scrap_key"
+scrap_version = 3
 
 def get_key_from_file():
     if os.path.isfile(scrap_key_filename):
-        f = open (scrap_key_filename, "r")
-        key = f.read()
-        f.close
+        with open ("scrap_key", "r") as f:
+            key = f.read()
+
         return key
     else:  
         print ("Error: scrap_key setup file does not exist. Invoke scrap.setup (key-name) from a python script to set.")
@@ -17,19 +19,28 @@ def get_key_from_file():
 
 def write(text):
     key = get_key_from_file()
-    if key == "ERROR":
+    if key == "ERROR" or key == "":
         return
     else:
-        payload = {'key': key, 'text': text}
+        url = api_url + "/write"
+        print (url)
+        values_to_post = {
+            'key': key,
+            'text': text,
+            'version': str(scrap_version)}
+        data_to_post = urllib.parse.urlencode(values_to_post)
+        data_to_post = data_to_post.encode('ascii')
+        request_to_post = urllib.request.Request (url, data_to_post)
+
         try:
-            r = requests.get(api_url + "/write", params=payload)
-        except:
-            print ("scrap error")
+            with urllib.request.urlopen(request_to_post) as response:
+                print (response.read()), 
+        except Exception as e:
+            print (e.message, e.args)
 
 def setup(key):
-    f = open (scrap_key_filename, "w")
-    f.write (key)
-    f.close
-    write ("New python client writing to scrap " + key)
+    with open ("scrap_key", "w") as f:
+        f.write (key)
+
 
 
