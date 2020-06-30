@@ -5,7 +5,7 @@ import urllib.parse
 
 api_url = "http://scrap.hankapi.com"
 scrap_key_filename = "scrap_key"
-scrap_version = 4
+scrap_version = 5
 
 def get_key_from_file():
     if os.path.isfile(scrap_key_filename):
@@ -41,5 +41,12 @@ def setup(key):
     with open ("scrap_key", "w") as f:
         f.write (key)
 
+def new_section():
+    write("~~~~~~~~~~~~~~~~~~~~")
 
+def auto_scrap_on_print():
+    sys.stdout.write = write
+
+def auto_scrap_on_error():
+    sys.stderr.write = write
 
