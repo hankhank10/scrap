@@ -27,6 +27,7 @@ See example-code.py for a full example.
 It can also be set to automatically output all future screen output or error output to your scrap:
 
 ```scrap.auto_scrap_on_print()```
+
 ```scrap.auto_scrap_on_error()```
 
 See example-code-automatic.py for a full example.
