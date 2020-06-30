@@ -1,4 +1,5 @@
 # scrap requires a total of three lines of python code for you to use
+# this example shows how scrap can be called manually
 
 import scrap  # this needs to be done on every script you write to a scrap from
 
@@ -6,6 +7,9 @@ import scrap  # this needs to be done on every script you write to a scrap from
 # This command only needs to be invoked once for each project directory you work in - it will save the key to a file for use going forward
 # but there's no harm in running it each time if you prefer - it will overwrite nicely
 scrap.setup("scrap-testing")
+
+# If you want to then you can add a line divider to make it easier to see where each new code run startds
+scrap.new_section()
 
 # Then you write to your scrap with the following command:
 scrap.write("Hello world")
