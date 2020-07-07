@@ -3,7 +3,7 @@ import sys
 import urllib.request
 import urllib.parse
 
-api_url = "http://scrap.hankapi.com"
+api_url = "https://scrap.rest"
 scrap_key_filename = "scrap_key"
 scrap_version = 5
 
