@@ -1,6 +1,6 @@
 # scrap
  
-scrap() is an easy way of working out what is going on within your python scripts even if you don't have access to where the terminal where they are running - say there's a GUI which takes the full screen or you are on a remote headless server
+scrap() is an easy way of working out what is going on within your python scripts even if you don't have access to the terminal where they are running - say there's a GUI which takes the full screen or you are on a remote headless server
 
 It can direct output - either manually or automatically - to a "scrap" which you can create at https://scrap.rest/
 
