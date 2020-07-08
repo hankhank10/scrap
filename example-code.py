@@ -19,4 +19,4 @@ scrap.write("Hello world")
 # That's all
 
 print ("A string has been written to " + scrap.get_key_from_file())
-print ("Go check it out at http://scrap.hankapi.com/read?key=" + scrap.get_key_from_file())
+print ("Go check it out at https://scrap.rest/read?key=" + scrap.get_key_from_file())
