@@ -4,12 +4,12 @@ import urllib.request
 import urllib.parse
 
 api_url = "https://scrap.hankapi.com"
-scrap_key_filename = "scrap_key"
+scrap_key_filename = sys.path[0] + "scrap_key"
 scrap_version = 5
 
 def get_key_from_file():
     if os.path.isfile(scrap_key_filename):
-        with open ("scrap_key", "r") as f:
+        with open (scrap_key_filename, "r") as f:
             key = f.read()
 
         return key
